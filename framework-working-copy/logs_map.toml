@@ -1,0 +1,3 @@
+[[event_reports]]
+    name = "main"
+    file = "/Users/clpombo/sandbox/invap-github/rt-monitor/sandbox/rust-example-app/rt-monitor-rust-example-app_log.csv"
