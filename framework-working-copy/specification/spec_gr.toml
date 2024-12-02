@@ -121,32 +121,7 @@ start = "init"
 type = "task_started"
 name = "init"
 file = "main.rs"
-location = "26,b"
-[[DAP_config]]
-type = "task_finished"
-name = "init"
-file = "main.rs"
-location = "27,a"
-[[DAP_config]]
-type = "task_started"
-name = "filtering"
-file = "main.rs"
-location = "40,b"
-[[DAP_config]]
-type = "task_finished"
-name = "filtering"
-file = "main.rs"
-location = "50,a"
-[[DAP_config]]
-type = "checkpoint_reached"
-name = "filtering_chk"
-file = "main.rs"
-location = "41,a"
-[[DAP_config]]
-type = "checkpoint_reached"
-name = "display_chk"
-file = "main.rs"
-location = "60,a"
+location = "23,b"
 [[DAP_config]]
 type = "variable_value_assigned"
 file = "main.rs"
@@ -154,22 +129,32 @@ location = "27,a"
 variable = "main_realvalue_old"
 expression = "realvalue_old"
 [[DAP_config]]
+type = "task_finished"
+name = "init"
+file = "main.rs"
+location = "27,a"
+[[DAP_config]]
 type = "variable_value_assigned"
 file = "main.rs"
 location = "35,a"
 variable = "main_addition"
 expression = "addition"
 [[DAP_config]]
+type = "task_started"
+name = "filtering"
+file = "main.rs"
+location = "40,b"
+[[DAP_config]]
 type = "variable_value_assigned"
 file = "main.rs"
-location = "35,a"
-variable = "main_value_{i}"
+location = "41,a"
+variable = "main_value"
 expression = "value"
 [[DAP_config]]
 type = "variable_value_assigned"
 file = "main.rs"
-location = "35,a"
-variable = "main_value"
+location = "41,a"
+variable = "main_value_{i}"
 expression = "value"
 # Procedimiento para reemplazar:
 #
@@ -180,23 +165,48 @@ expression = "value"
 #
 #  main_result_1_value_result_2
 [[DAP_config]]
+type = "checkpoint_reached"
+name = "filtering_chk"
+file = "main.rs"
+location = "47,b"
+[[DAP_config]]
 type = "variable_value_assigned"
 file = "main.rs"
-location = "46,a"
+location = "47,a"
 variable = "main_addition"
 expression = "addition"
 [[DAP_config]]
 type = "variable_value_assigned"
 file = "main.rs"
-location = "46,a"
+location = "51,a"
 variable = "main_realvalue"
 expression = "realvalue"
 [[DAP_config]]
+type = "task_finished"
+name = "filtering"
+file = "main.rs"
+location = "51,a"
+[[DAP_config]]
+type = "task_started"
+name = "conversion"
+file = "main.rs"
+location = "57,b"
+[[DAP_config]]
+type = "task_finished"
+name = "conversion"
+file = "main.rs"
+location = "58,a"
+[[DAP_config]]
 type = "variable_value_assigned"
 file = "main.rs"
-location = "60,a"
+location = "61,a"
 variable = "main_realvalue_old"
 expression = "realvalue_old"
+[[DAP_config]]
+type = "checkpoint_reached"
+name = "display_chk"
+file = "main.rs"
+location = "61,a"
 [[DAP_config]]
 type = "variable_value_assigned"
 file = "functions.rs"

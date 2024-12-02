@@ -27,8 +27,8 @@ fn main() {
     realvalue_old = 0;
     // INSTRUMENTACION:
     // Variable assigned: variable_value_assigned,main_realvalue_old,{ realvalue_old }
-    // TimedEvent: clock_pause,init_clk
     // ProcessEvent: task_finished,init
+    // TimedEvent: clock_pause,init_clk
     // TimedEvent: clock_start,filtering_clk
     // TimedEvent: clock_pause,filtering_clk
     loop {
@@ -41,8 +41,8 @@ fn main() {
             value = adc.sample();
             // INSTRUMENTACION:
             // ComponentEvent: adc,sample,{ value }
-            // StateEvent: variable_value_assigned,main_value_{ i },{ value }
             // StateEvent: variable_value_assigned,main_value,{ value }
+            // StateEvent: variable_value_assigned,main_value_{ i },{ value }
             // ProcessEvent: checkpoint_reached,filtering_chk
             addition = addition + value;
             // INSTRUMENTACION:
@@ -51,8 +51,8 @@ fn main() {
         realvalue = addition / 16;
         // INSTRUMENTACION:
         // StateEvent: variable_value_assigned,main_realvalue,{ realvalue }
-        // TimedEvent: clock_pause,filtering_clk
         // ProcessEvent: task_finished,filtering
+        // TimedEvent: clock_pause,filtering_clk
         // ProcessEvent: task_started,conversion
         measurement(realvalue);
         bar(realvalue, realvalue_old);
