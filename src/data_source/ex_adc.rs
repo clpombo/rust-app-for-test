@@ -4,10 +4,6 @@
 use rand::Rng;
 
 pub struct ADC {
-    // To discriminate whether adc data is read from file or generated
-    // adc_info_present: bool,
-    // For when adc data is read from file
-    //FILE *file;
     // For when adc data is generated
     previous_sample: u16,
     // Random Number Generator
@@ -17,15 +13,9 @@ pub struct ADC {
 impl ADC {
     // Initialization of the ADC
     pub fn new () -> Self {
-        //    file = fopen("./adc_info.csv","r");
-        //    if (file != NULL)
-        //        adc_info_present = true;
-        //    else {
         let mut rng = rand::rng();
         let previous_sample = rng.random_range(0..4096);
-
         Self {
-            // adc_info_present: false,
             rng,
             previous_sample,
         }
@@ -33,18 +23,6 @@ impl ADC {
 
     // Sampling the ADC
     pub fn sample (&mut self) -> u16 {
-        //    if (adc_info_present) {
-        //        uint16_t sample;
-        //        int result = fscanf(file, "%hd\n", &sample);
-        //        // To check whether the data in the file was exhasted
-        //        if (result != 1) {
-        //            fprintf(stderr, "Error: Could not read sample from the file.\n");
-        //            exit(-2);
-        //        }
-        //        return sample;
-        //    } else {
-        //        // The generation policy is that only 12 bits data is generated (0 <= sample < 4096) and
-        //        // the new sample is only -16 < diff_sample < 16 (4 bits difference magnitude)
         // The generation policy is that only 12-bit data is generated (0 <= sample < 4096)
         // The new sample is only -16 < diff_sample < 16 (4-bit difference magnitude)
         let diff_sample: u16 = self.rng.random_range(0..16);
