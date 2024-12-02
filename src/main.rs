@@ -7,10 +7,10 @@ mod data_source {
 mod data_display {
     pub mod ex_display;
 }
-mod functions_uninstrumented;
+mod functions;
 
 use crate::data_source::ex_adc::ADC;
-use crate::functions_uninstrumented::{background, bar, measurement};
+use crate::functions::{background, bar, measurement};
 
 fn main() {
     let mut realvalue_old: u16;

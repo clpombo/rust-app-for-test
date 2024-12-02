@@ -9,3 +9,6 @@ edition = "2021"
 [[bin]]
 name = "rt-monitor-rust-example-app"
 path = "src/main.rs"
+
+[dependencies]
+rand = "0.9.0-beta.1"
