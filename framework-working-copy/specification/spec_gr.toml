@@ -114,29 +114,101 @@ start = "init"
     visual_component_name = "displayVisual"
     visual = true
 
-[[DAP_config.locations]]
-type = "task_start"
-name = "nombre_1"
-location = num_start,b|a
-[[DAP_config.locations]]
-type = "task_end"
+[[DAP_config]]
+type = "task_started"
 name = "init"
-location = num_end,b|a
-[[DAP_config.locations]]
-type = "checkpoint"
-name = "nombre_2"
-location = num,b|a
-[[DAP_config.locations]]
-type = "checkpoint"
-name = "nombre_3"
-location = num,b|a
-[[DAP_config.locations]]
-type = "variable_update"
-location = num,b|a
-variable = "nombre_1"
-expression = "expression_1"
-[[DAP_config.locations]]
-type = "variable_update"
-location = num,b|a
-variable = "nombre_2"
-expression = "expression_2"
+file = "main.rs"
+location = "26,b"
+[[DAP_config]]
+type = "task_finished"
+name = "init"
+file = "main.rs"
+location = "27,a"
+[[DAP_config]]
+type = "task_started"
+name = "filtering"
+file = "main.rs"
+location = "40,b"
+[[DAP_config]]
+type = "task_finished"
+name = "filtering"
+file = "main.rs"
+location = "50,a"
+[[DAP_config]]
+type = "checkpoint_reached"
+name = "filtering_chk"
+file = "main.rs"
+location = "41,a"
+[[DAP_config]]
+type = "checkpoint_reached"
+name = "display_chk"
+file = "main.rs"
+location = "60,a"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "main.rs"
+location = "27,a"
+variable = "main_realvalue_old"
+expression = "realvalue_old"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "main.rs"
+location = "35,a"
+variable = "main_addition"
+expression = "addition"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "main.rs"
+location = "35,a"
+variable = "main_value_{i}"
+expression = "value"
+# Procedimiento para reemplazar:
+#
+#  main_{g(23*aux)}_value_{i}
+#
+#  g(23*aux) --> result_1
+#  i --> result_2
+#
+#  main_result_1_value_result_2
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "main.rs"
+location = "46,a"
+variable = "main_addition"
+expression = "addition"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "main.rs"
+location = "46,a"
+variable = "main_realvalue"
+expression = "realvalue"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "main.rs"
+location = "60,a"
+variable = "main_realvalue_old"
+expression = "realvalue_old"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "functions.rs"
+location = "12,a"
+variable = "measurement_dato_ing"
+expression = "dato_ing"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "functions.rs"
+location = "15,a"
+variable = "measurement_dato_ing2"
+expression = "dato_ing2"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "functions.rs"
+location = "51,a"
+variable = "bar_dato_ing"
+expression = "dato_ing"
+[[DAP_config]]
+type = "variable_value_assigned"
+file = "functions.rs"
+location = "51,a"
+variable = "bar_point"
+expression = "g"

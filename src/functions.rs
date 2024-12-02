@@ -50,7 +50,7 @@ pub fn measurement(dato: u16) {
 pub fn bar(dato: u16, dato_old: u16) {
     let dato_ing: f32 = 0.00524590164 * dato as f32;
     // INSTRUMENTACION:
-    // StateEvent: variable_value_assigned,bar_dato_ing,{:.7 dato_ing }
+    // StateEvent: variable_value_assigned,bar_dato_ing,{ dato_ing }
     let dato_ing_old: f32 = 0.00524590164 * dato_old as f32;
     let g: i16 = (24 as f32 * dato_ing - 96 as f32) as i16;
     let h: i16 = (24 as f32 * dato_ing_old - 96 as f32) as i16;
