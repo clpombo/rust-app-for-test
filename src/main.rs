@@ -42,6 +42,7 @@ fn main() {
             // INSTRUMENTACION:
             // ComponentEvent: adc,sample,{ value }
             // StateEvent: variable_value_assigned,main_value_{ i },{ value }
+            // StateEvent: variable_value_assigned,main_value,{ value }
             // ProcessEvent: checkpoint_reached,filtering_chk
             addition = addition + value;
             // INSTRUMENTACION:

@@ -1,0 +1,2 @@
+(main_value:State Int)
+((0 <= main_value) & (main_value < 4096))
