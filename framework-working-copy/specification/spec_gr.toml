@@ -228,6 +228,6 @@ expression = "dato_ing"
 [[DAP_config]]
 type = "variable_value_assigned"
 file = "functions.rs"
-location = "51,a"
+location = "56,a"
 variable = "bar_point"
 expression = "g"

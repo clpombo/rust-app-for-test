@@ -11,10 +11,10 @@ static COLOR_BLACK: RGB = RGB {r: 0x00, g: 0x00, b: 0x00};
 pub fn measurement(dato: u16) {
     let dato_ing: f32 = 0.00524590164*(dato as f32);
     // INSTRUMENTACION:
-    // StateEvent: variable_value_assigned,measurement_dato_ing,{ dato_ing }
+    // StateEvent: 12,a,variable_value_assigned,measurement_dato_ing,{ dato_ing }
     let dato_ing2:f32 = 1E-13 * 2.71828f32.powf(1.1231*dato_ing);
     // INSTRUMENTACION:
-    // StateEvent: variable_value_assigned,measurement_dato_ing2,{ dato_ing2 }
+    // StateEvent: 15,a,variable_value_assigned,measurement_dato_ing2,{ dato_ing2 }
     let pl: u16 =30;
     let ll: u16 =20;
     let scale: u8 = 2;
@@ -50,12 +50,12 @@ pub fn measurement(dato: u16) {
 pub fn bar(dato: u16, dato_old: u16) {
     let dato_ing: f32 = 0.00524590164 * dato as f32;
     // INSTRUMENTACION:
-    // StateEvent: variable_value_assigned,bar_dato_ing,{ dato_ing }
+    // StateEvent: 51,a,variable_value_assigned,bar_dato_ing,{ dato_ing }
     let dato_ing_old: f32 = 0.00524590164 * dato_old as f32;
     let g: i16 = (24 as f32 * dato_ing - 96 as f32) as i16;
     let h: i16 = (24 as f32 * dato_ing_old - 96 as f32) as i16;
     // INSTRUMENTACION:
-    // StateEvent: variable_value_assigned,bar_point,{ g }
+    // StateEvent: 56,a,variable_value_assigned,bar_point,{ g }
     for i in 66..g+66 {
         if (i >= 49) && (i < 178) {
             display_Show_RGB(0x00, 0xff, 0x00, i as u32, i as u32, 155, 190); //00ff00  1c542d

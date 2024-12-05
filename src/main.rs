@@ -18,7 +18,7 @@ fn main() {
     let mut addition: u16;
     let mut realvalue: u16;
     // INSTRUMENTACION:
-    // Process event: task_started,init
+    // Process event: 23,b,task_started,init
     // Timed event: clock_start,init_clk
     let mut adc = ADC::new();
     // INSTRUMENTACION: Component event: adc,adc_init
@@ -26,41 +26,41 @@ fn main() {
     // INSTRUMENTACION: Component event: display,background
     realvalue_old = 0;
     // INSTRUMENTACION:
-    // Variable assigned: variable_value_assigned,main_realvalue_old,{ realvalue_old }
-    // ProcessEvent: task_finished,init
+    // Variable assigned: 27,a,variable_value_assigned,main_realvalue_old,{ realvalue_old }
+    // ProcessEvent: 27,a,task_finished,init
     // TimedEvent: clock_pause,init_clk
     // TimedEvent: clock_start,filtering_clk
     // TimedEvent: clock_pause,filtering_clk
     loop {
         addition = 0;
         // INSTRUMENTACION:
-        // StateEvent: variable_value_assigned,main_addition,{ addition }
-        // ProcessEvent: task_started,filtering
+        // StateEvent: 35,a,variable_value_assigned,main_addition,{ addition }
+        // ProcessEvent: 35,a,task_started,filtering
         // TimedEvent: clock_reset,filtering_clk
         for _i in 0..16{
             value = adc.sample();
             // INSTRUMENTACION:
             // ComponentEvent: adc,sample,{ value }
-            // StateEvent: variable_value_assigned,main_value,{ value }
-            // StateEvent: variable_value_assigned,main_value_{ i },{ value }
-            // ProcessEvent: checkpoint_reached,filtering_chk
+            // StateEvent: 41,a,variable_value_assigned,main_value,{ value }
+            // StateEvent: 41,a,variable_value_assigned,main_value_{ i },{ value }
+            // ProcessEvent: 41,a,checkpoint_reached,filtering_chk
             addition = addition + value;
             // INSTRUMENTACION:
-            // StateEvent, variable_value_assigned,main_addition,{ addition }
+            // StateEvent: 47,a,variable_value_assigned,main_addition,{ addition }
         }
         realvalue = addition / 16;
         // INSTRUMENTACION:
-        // StateEvent: variable_value_assigned,main_realvalue,{ realvalue }
-        // ProcessEvent: task_finished,filtering
+        // StateEvent: 51,a,variable_value_assigned,main_realvalue,{ realvalue }
+        // ProcessEvent: 51,a,task_finished,filtering
         // TimedEvent: clock_pause,filtering_clk
-        // ProcessEvent: task_started,conversion
+        // ProcessEvent: 51,a,task_started,conversion || ProcessEvent: 57,b,task_started,conversion
         measurement(realvalue);
         bar(realvalue, realvalue_old);
         // INSTRUMENTACION:
-        // ProcessEvent: task_finished,conversion
+        // ProcessEvent: 58,a,task_finished,conversion
         realvalue_old = realvalue;
         // INSTRUMENTACION:
-        // StateEvent: variable_value_assigned,main_realvalue_old,{ realvalue_old }
-        // ProcessEvent: checkpoint_reached,display_chk
-    } // WHILE
+        // StateEvent: 61,a,variable_value_assigned,main_realvalue_old,{ realvalue_old }
+        // ProcessEvent: 61,a,checkpoint_reached,display_chk
+    } // LOOP
 } // MAIN
